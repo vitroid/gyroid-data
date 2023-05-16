@@ -32,14 +32,14 @@ module panelB(){
 module holesA(){
     for(i=[-36:6:36])
         translate([R*1.05*1.2*cos(i)-1.6,R*1.05*sin(i)+0.5,0])
-            cylinder(h=0.3, r=thick/2, center=true);
+            cylinder(h=0.35, r=thick/2, center=true);
 }
 
 
 module holesB(){
-    for(i=[-33:6:33])
+    for(i=[-36:6:36])
         translate([-R*0.95*1.2*cos(i)+0.6,R*0.95*sin(i)+0.5,1])
-            cylinder(h=1, r=thick/2, center=true);
+            cylinder(h=0.35, r=thick/2, center=true);
 }
 
 
