@@ -1,4 +1,4 @@
-thick=0.05;
+thick=2/60;
 $fn=40;
 R=sqrt(2)/2;
 
@@ -22,7 +22,12 @@ module panelB(){
         cube([1,1,1]);
         translate([-0.6, 0.5, 0]){
             scale([1.2, 1, 1])
-            cylinder(h=1, r1=R, r2=0);
+            union(){
+                translate([0,0,thick])
+                    cylinder(h=1, r1=R, r2=0);
+                
+                cylinder(h=thick, r=R);
+            }
         }
     }
 }
@@ -30,14 +35,14 @@ module panelB(){
 
 
 module holesA(){
-    for(i=[-36:6:36])
+    for(i=[-36:4:36])
         translate([R*1.05*1.2*cos(i)-1.6,R*1.05*sin(i)+0.5,0])
             cylinder(h=0.35, r=thick/2, center=true);
 }
 
 
 module holesB(){
-    for(i=[-36:6:36])
+    for(i=[-36:4:36])
         translate([-R*0.95*1.2*cos(i)+0.6,R*0.95*sin(i)+0.5,1])
             cylinder(h=0.35, r=thick/2, center=true);
 }
