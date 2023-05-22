@@ -30,15 +30,13 @@ module hook2(){
     difference(){
         intersection(){
             translate([R,0,-thick/4])
-                scale([thick*2, thick/2, thick*1.2])
+                scale([thick*2, thick/2, thick*2])
                     sphere(1);
             cylinder(r=1, h=1);
         }
-        /*
         translate([R,0,0])
             rotate([90,0,0])
-                        scale([1,0.5,1])
-                cylinder(r=thick*0.7, center=true);*/
+                cylinder(r=thick, center=true);
     }
 }
 
@@ -75,31 +73,19 @@ module panelA(){
             }
             dovetail_f();
             // square hole
-            translate([0.35-thick/2, 0.15+thick/2, 0])
-                cube([0.5, 0.7, 1]);
+            translate([-0.15-thick/2, 0.15+thick/2, 0])
+                cube([1, 1, 1]);
         }
-        intersection(){
+/*        intersection(){
             translate([-0.50, 0.5, 0])
                 hooks2();
             cube([1.2,1,thick*2]);
-        }
+        }*/
     }
 }
 
 
 module panelB(){
-    translate([0,0,1])
-    rotate([0,180,0]){
-    intersection(){
-        cube([1,1,1]);
-        translate([-0.5, 0.5, 0]){
-            cylinder(h=thick, r=R);
-//            translate([0,0,thick])
-//                cylinder(h=1-thick, r1=R, r2=0);
-            hooks2();
-        }
-    }
-}
 }
 
 

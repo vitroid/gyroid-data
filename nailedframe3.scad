@@ -4,7 +4,7 @@ R=sqrt(2)/2;
 gap=0.003;
 
 module hooks(){
-    for(i=[-33:9:39])
+    for(i=[0:0.1:0.9])
         difference(){
             intersection(){
                 hull(){
@@ -24,7 +24,7 @@ module hooks(){
             }
 }
 
-//hooks();
+//hooks2();
 
 module hook2(){
     difference(){
@@ -43,8 +43,8 @@ module hook2(){
 }
 
 module hooks2(){
-    for(i=[-32:8.5:40])
-        rotate([0,0,i])
+    for(i=[-0.4-thick/2:0.1:0.5-thick/2])
+        translate([(sqrt(R-i*i)-0.85),i,0])
             hook2();
 }
 
@@ -81,6 +81,7 @@ module panelA(){
         intersection(){
             translate([-0.50, 0.5, 0])
                 hooks2();
+            translate([-0.2,0.0])
             cube([1.2,1,thick*2]);
         }
     }
@@ -119,6 +120,7 @@ module panels(){
 rotate([0,90,90])
     panelB();
 }
+
 
 scale(60){
 panels();
